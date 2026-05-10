@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RangerDevv | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Boot Screen -->
+  <div id="boot-screen">
+    <div class="boot-content">
+      <div class="boot-leaf">
+        <svg viewBox="0 0 64 64" fill="none">
+          <path class="leaf-body" d="M32 4C32 4 8 20 8 40c0 12 10 20 24 20s24-8 24-20C56 20 32 4 32 4z" fill="#2d5a3d"/>
+          <path class="leaf-veins" d="M32 16v40M32 28c-6-2-12 0-14 4M32 36c6-2 12 0 14 4M32 44c-8-2-10 2-12 6" stroke="#faf6ef" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="boot-name">RangerDevv</div>
+      <div class="boot-loader">
+        <div class="boot-loader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop -->
+  <div id="desktop" class="hidden">
+    <!-- Wallpaper -->
+    <div class="desktop-wallpaper">
+      <div class="wp-orb"></div><div class="wp-orb"></div><div class="wp-orb"></div><div class="wp-orb"></div>
+      <div class="wp-topo"></div>
+      <div class="wp-noise"></div>
+    </div>
+    <div class="desktop-particles">
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+
+    <!-- Desktop Widgets -->
+    <div id="desktop-widgets">
+      <div class="widget widget-clock">
+        <div class="widget-time" id="widget-time">12:00</div>
+        <div class="widget-date" id="widget-date">Tuesday, April 15</div>
+        <div class="widget-greeting" id="widget-greeting">Good afternoon</div>
+      </div>
+      <div class="widget widget-now-coding">
+        <div class="widget-header">
+          <span class="widget-dot pulse"></span>
+          <span>Now Coding</span>
+        </div>
+        <div class="widget-track">Portfolio v2.0</div>
+        <div class="widget-sub">HTML · CSS · JavaScript</div>
+        <div class="widget-bar"><div class="widget-bar-fill"></div></div>
+      </div>
+      <div class="widget widget-stats">
+        <div class="widget-header">
+          <span>🌱</span>
+          <span>Quick Stats</span>
+        </div>
+        <div class="widget-stat-row"><span>Repos</span><span class="widget-stat-val">57</span></div>
+        <div class="widget-stat-row"><span>Languages</span><span class="widget-stat-val">8+</span></div>
+        <div class="widget-stat-row"><span>Streak</span><span class="widget-stat-val">🔥 Active</span></div>
+      </div>
+      <div class="widget widget-weather">
+        <div class="widget-weather-icon">☀️</div>
+        <div class="widget-weather-info">
+          <div class="widget-weather-temp">24°</div>
+          <div class="widget-weather-loc">Earth · Clear</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Bar (macOS style) -->
+    <div id="top-bar">
+      <div class="top-bar-left">
+        <button id="menu-trigger" class="top-bar-item">
+          <svg width="16" height="16" viewBox="0 0 64 64" fill="none">
+            <path d="M32 4C32 4 8 20 8 40c0 12 10 20 24 20s24-8 24-20C56 20 32 4 32 4z" fill="#2d5a3d"/>
+            <path d="M32 16v40M32 28c-6-2-12 0-14 4M32 36c6-2 12 0 14 4" stroke="#faf6ef" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <span class="top-bar-item active-app-name" id="active-app-name">Finder</span>
+      </div>
+      <div class="top-bar-center">
+        <span id="top-bar-date"></span>
+      </div>
+      <div class="top-bar-right">
+        <span id="top-bar-clock"></span>
+      </div>
+    </div>
+
+    <!-- Desktop Icons -->
+    <div id="desktop-icons">
+      <div class="desktop-icon" data-window="about">
+        <div class="icon-img">
+          <svg viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="13" fill="#2d5a3d"/>
+            <circle cx="28" cy="21" r="9" fill="#faf6ef"/>
+            <path d="M12 48c0-9 7-14 16-14s16 5 16 14" fill="#faf6ef" opacity="0.8"/>
+          </svg>
+        </div>
+        <span>About Me</span>
+      </div>
+      <div class="desktop-icon" data-window="projects">
+        <div class="icon-img">
+          <svg viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="13" fill="#b8860b"/>
+            <rect x="10" y="18" width="36" height="26" rx="3" fill="#faf6ef" opacity="0.9"/>
+            <rect x="10" y="18" width="36" height="7" rx="3" fill="#d4a843"/>
+            <circle cx="16" cy="21.5" r="1.5" fill="#e85d4a"/><circle cx="21" cy="21.5" r="1.5" fill="#f5b731"/><circle cx="26" cy="21.5" r="1.5" fill="#2d5a3d"/>
+          </svg>
+        </div>
+        <span>Projects</span>
+      </div>
+      <div class="desktop-icon" data-window="skills">
+        <div class="icon-img">
+          <svg viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="13" fill="#3a7d4e"/>
+            <path d="M16 38V28M23 38V22M30 38V30M37 38V26" stroke="#faf6ef" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span>Skills</span>
+      </div>
+      <div class="desktop-icon" data-window="contact">
+        <div class="icon-img">
+          <svg viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="13" fill="#c4956a"/>
+            <rect x="10" y="16" width="36" height="24" rx="4" fill="#faf6ef"/>
+            <path d="M10 20l18 11 18-11" stroke="#c4956a" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <span>Contact</span>
+      </div>
+      <div class="desktop-icon" data-window="terminal">
+        <div class="icon-img">
+          <svg viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="13" fill="#1a2e1a"/>
+            <path d="M16 22l10 7-10 7" stroke="#5cb87a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="30" y1="36" x2="40" y2="36" stroke="#5cb87a" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span>Terminal</span>
+      </div>
+      <!-- Cute spacer smiley -->
+      <div class="desktop-mascot-mini">
+        <svg viewBox="0 0 32 32" width="32" height="32">
+          <circle cx="16" cy="16" r="14" fill="#5cb87a" opacity="0.15"/>
+          <circle cx="11" cy="13" r="2" fill="#2d5a3d"/>
+          <circle cx="21" cy="13" r="2" fill="#2d5a3d"/>
+          <path d="M10 19c2 4 10 4 12 0" stroke="#2d5a3d" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <ellipse cx="7" cy="18" rx="2" ry="1.2" fill="#c4956a" opacity="0.4"/>
+          <ellipse cx="25" cy="18" rx="2" ry="1.2" fill="#c4956a" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="desktop-icon" data-window="casestudies">
+        <div class="icon-img">
+          <svg viewBox="0 0 56 56" fill="none">
+            <rect width="56" height="56" rx="13" fill="#1e3f2b"/>
+            <rect x="12" y="10" width="32" height="36" rx="3" fill="#faf6ef" opacity="0.9"/>
+            <rect x="17" y="17" width="18" height="2" rx="1" fill="#2d5a3d" opacity="0.6"/>
+            <rect x="17" y="22" width="22" height="2" rx="1" fill="#2d5a3d" opacity="0.4"/>
+            <rect x="17" y="27" width="14" height="2" rx="1" fill="#2d5a3d" opacity="0.3"/>
+            <rect x="17" y="34" width="20" height="2" rx="1" fill="#2d5a3d" opacity="0.4"/>
+            <rect x="17" y="39" width="10" height="2" rx="1" fill="#2d5a3d" opacity="0.3"/>
+          </svg>
+        </div>
+        <span>Case Studies</span>
+      </div>
+    </div>
+
+    <!-- Cat on a bike mascot -->
+    <div class="desktop-mascot" id="desktop-mascot" title="meow :3">
+      <svg viewBox="0 0 120 100" fill="none">
+        <!-- Bike wheels -->
+        <circle cx="30" cy="78" r="16" stroke="#6b5b47" stroke-width="2.5" fill="none"/>
+        <circle cx="90" cy="78" r="16" stroke="#6b5b47" stroke-width="2.5" fill="none"/>
+        <!-- Wheel spokes -->
+        <line x1="30" y1="62" x2="30" y2="94" stroke="#6b5b47" stroke-width="1" opacity="0.4"/>
+        <line x1="14" y1="78" x2="46" y2="78" stroke="#6b5b47" stroke-width="1" opacity="0.4"/>
+        <line x1="19" y1="67" x2="41" y2="89" stroke="#6b5b47" stroke-width="1" opacity="0.4"/>
+        <line x1="41" y1="67" x2="19" y2="89" stroke="#6b5b47" stroke-width="1" opacity="0.4"/>
+        <line x1="90" y1="62" x2="90" y2="94" stroke="#6b5b47" stroke-width="1" opacity="0.4"/>
+        <line x1="74" y1="78" x2="106" y2="78" stroke="#6b5b47" stroke-width="1" opacity="0.4"/>
+        <!-- Bike frame -->
+        <path d="M30 78L55 55L90 78L55 55L55 75" stroke="#2d5a3d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M55 75L30 78" stroke="#2d5a3d" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Handlebars -->
+        <path d="M87 68Q90 60 95 62" stroke="#2d5a3d" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Seat -->
+        <rect x="50" y="52" width="12" height="4" rx="2" fill="#6b5b47"/>
+        <!-- Cat body -->
+        <ellipse cx="56" cy="42" rx="14" ry="12" fill="#c4956a"/>
+        <!-- Cat head -->
+        <circle cx="56" cy="26" r="12" fill="#c4956a"/>
+        <!-- Cat ears -->
+        <path d="M47 18L44 7L52 15Z" fill="#c4956a"/>
+        <path d="M65 18L68 7L60 15Z" fill="#c4956a"/>
+        <path d="M48 17L45.5 9L52 15Z" fill="#e8c9a8" opacity="0.5"/>
+        <path d="M64 17L66.5 9L60 15Z" fill="#e8c9a8" opacity="0.5"/>
+        <!-- Cat face -->
+        <circle cx="51" cy="24" r="2" fill="#2d5a3d"/>
+        <circle cx="61" cy="24" r="2" fill="#2d5a3d"/>
+        <circle cx="51.8" cy="23.3" r="0.7" fill="#faf6ef"/>
+        <circle cx="61.8" cy="23.3" r="0.7" fill="#faf6ef"/>
+        <!-- Cat nose & mouth -->
+        <ellipse cx="56" cy="28" rx="1.5" ry="1" fill="#e8a0a0"/>
+        <path d="M56 29Q53 32 50 30" stroke="#2d5a3d" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+        <path d="M56 29Q59 32 62 30" stroke="#2d5a3d" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+        <!-- Whiskers -->
+        <line x1="42" y1="26" x2="49" y2="27" stroke="#2d5a3d" stroke-width="0.7" opacity="0.5"/>
+        <line x1="42" y1="29" x2="49" y2="29" stroke="#2d5a3d" stroke-width="0.7" opacity="0.5"/>
+        <line x1="70" y1="26" x2="63" y2="27" stroke="#2d5a3d" stroke-width="0.7" opacity="0.5"/>
+        <line x1="70" y1="29" x2="63" y2="29" stroke="#2d5a3d" stroke-width="0.7" opacity="0.5"/>
+        <!-- Cat paws on handlebars -->
+        <circle cx="90" cy="65" r="4" fill="#c4956a"/>
+        <circle cx="55" cy="53" r="3.5" fill="#c4956a"/>
+        <!-- Tail -->
+        <path d="M42 42Q30 30 28 38Q26 46 35 44" stroke="#c4956a" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <!-- Blush -->
+        <ellipse cx="47" cy="29" rx="3" ry="1.5" fill="#e8a0a0" opacity="0.3"/>
+        <ellipse cx="65" cy="29" rx="3" ry="1.5" fill="#e8a0a0" opacity="0.3"/>
+        <!-- Helmet -->
+        <path d="M44 20Q44 10 56 8Q68 10 68 20" stroke="#2d5a3d" stroke-width="2" fill="#5cb87a" opacity="0.7"/>
+        <line x1="44" y1="20" x2="68" y2="20" stroke="#2d5a3d" stroke-width="1.5"/>
+      </svg>
+      <span class="mascot-label">meow :3</span>
+    </div>
+
+    <!-- Windows Container -->
+    <div id="windows-container">
+      <!-- About Me Window -->
+      <div class="window" id="window-about" style="display:none;">
+        <div class="window-titlebar">
+          <div class="window-controls">
+            <button class="win-btn close" title="Close"></button>
+            <button class="win-btn minimize" title="Minimize"></button>
+            <button class="win-btn maximize" title="Maximize"></button>
+          </div>
+          <div class="window-title">About Me</div>
+          <div class="window-controls-spacer"></div>
+        </div>
+        <div class="window-content">
+          <div class="about-container">
+
+            <!-- Section 1: Hero -->
+            <section class="about-section about-hero-section">
+              <div class="about-hero">
+                <div class="about-avatar-wrap">
+                  <img src="https://avatars.githubusercontent.com/u/66392962?v=4" alt="RangerDevv" class="about-avatar" />
+                  <div class="avatar-status">
+                    <span class="status-dot"></span>
+                  </div>
+                </div>
+                <div class="about-intro">
+                  <h1 class="reveal-text">RangerDevv</h1>
+                  <p class="about-role">Full-Stack Developer · Open Source Builder</p>
+                  <div class="about-location">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Earth · he/him</span>
+                  </div>
+                </div>
+              </div>
+              <div class="about-stats">
+                <div class="stat" data-count="57"><span class="stat-num">0</span><span class="stat-label">Repos</span></div>
+                <div class="stat" data-count="339"><span class="stat-num">0</span><span class="stat-label">Contributions</span></div>
+                <div class="stat" data-count="13"><span class="stat-num">0</span><span class="stat-label">Followers</span></div>
+              </div>
+            </section>
+
+            <!-- Section 2: Bio -->
+            <section class="about-section fade-in-section">
+              <div class="about-section-header">
+                <span class="section-icon">📄</span>
+                <h2>readme.md</h2>
+              </div>
+              <div class="about-bio">
+                <p>Hi! The name's Ranger... RangerDevv specifically. Don't ask me about the extra v, I couldn't tell you why it's there in the first place either.</p>
+                <p>I love learning new stuff, currently interested in learning <strong>Rust</strong> and building software with it. I also love making websites with <strong>Svelte</strong>, <strong>Astro</strong>, and <strong>TailwindCSS</strong>.</p>
+                <p>When I'm not coding, you'll probably find me <strong>mountain biking</strong> through trails or hanging out with my cat. Life's about balance, right? 🚵</p>
+              </div>
+            </section>
+
+            <!-- Section 3: Quick Stack -->
+            <section class="about-section fade-in-section">
+              <div class="about-section-header">
+                <span class="section-icon">⚡</span>
+                <h2>Tech I Love</h2>
+              </div>
+              <div class="about-stack-grid">
+                <div class="stack-chip" style="--chip-color:#ff3e00"><span class="stack-chip-dot" style="background:#ff3e00"></span>Svelte</div>
+                <div class="stack-chip" style="--chip-color:#bc52ee"><span class="stack-chip-dot" style="background:#bc52ee"></span>Astro</div>
+                <div class="stack-chip" style="--chip-color:#06b6d4"><span class="stack-chip-dot" style="background:#06b6d4"></span>Tailwind</div>
+                <div class="stack-chip" style="--chip-color:#f7df1e"><span class="stack-chip-dot" style="background:#f7df1e"></span>JavaScript</div>
+                <div class="stack-chip" style="--chip-color:#3178c6"><span class="stack-chip-dot" style="background:#3178c6"></span>TypeScript</div>
+                <div class="stack-chip" style="--chip-color:#dea584"><span class="stack-chip-dot" style="background:#dea584"></span>Rust</div>
+                <div class="stack-chip" style="--chip-color:#3776ab"><span class="stack-chip-dot" style="background:#3776ab"></span>Python</div>
+                <div class="stack-chip" style="--chip-color:#2b3137"><span class="stack-chip-dot" style="background:#2b3137"></span>Node.js</div>
+              </div>
+              <button class="about-more-btn" onclick="openWindow('window-skills')">
+                See all skills
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </section>
+
+            <!-- Section 4: Interests -->
+            <section class="about-section fade-in-section">
+              <div class="about-section-header">
+                <span class="section-icon">🌿</span>
+                <h2>Beyond the Code</h2>
+              </div>
+              <div class="about-interests">
+                <div class="interest-card">
+                  <div class="interest-emoji">🐱</div>
+                  <div class="interest-info">
+                    <strong>Cat Person</strong>
+                    <span>Proud cat parent. My cat is my unofficial pair programmer — mostly supervises from the keyboard.</span>
+                  </div>
+                </div>
+                <div class="interest-card">
+                  <div class="interest-emoji">🚵</div>
+                  <div class="interest-info">
+                    <strong>Mountain Biking</strong>
+                    <span>Nothing beats hitting the trails. Keeps me sane when the code won't compile.</span>
+                  </div>
+                </div>
+                <div class="interest-card">
+                  <div class="interest-emoji">🌱</div>
+                  <div class="interest-info">
+                    <strong>Always Learning</strong>
+                    <span>Currently deep-diving into Rust. Previously survived the JavaScript framework wars.</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Section 5: Quick Facts -->
+            <section class="about-section fade-in-section">
+              <div class="about-section-header">
+                <span class="section-icon">📋</span>
+                <h2>Quick Facts</h2>
+              </div>
+              <div class="about-facts">
+                <div class="fact-row"><span class="fact-label">🎂 Age</span><span class="fact-value">17</span></div>
+                <div class="fact-row"><span class="fact-label">🎓 Studying</span><span class="fact-value">Penn State University — Freshman</span></div>
+                <div class="fact-row"><span class="fact-label">📍 Location</span><span class="fact-value">Earth</span></div>
+                <div class="fact-row"><span class="fact-label">💻 Focus</span><span class="fact-value">Full-Stack Web Dev & Open Source</span></div>
+                <div class="fact-row"><span class="fact-label">🗣️ Languages</span><span class="fact-value">English, Uzbek</span></div>
+                <div class="fact-row"><span class="fact-label">☕ Status</span><span class="fact-value">Open to collaborate</span></div>
+              </div>
+            </section>
+
+            <!-- Section 6: CTA -->
+            <section class="about-section about-cta-section fade-in-section">
+              <div class="about-cta-card">
+                <p>Want to see what I've built?</p>
+                <div class="about-cta-buttons">
+                  <button class="cta-btn" onclick="openWindow('window-projects')">
+                    <span>Explore my projects</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+                  <button class="cta-btn cta-btn-secondary" onclick="openWindow('window-contact')">
+                    <span>Get in touch</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Window -->
+      <div class="window wide-window" id="window-projects" style="display:none;">
+        <div class="window-titlebar">
+          <div class="window-controls">
+            <button class="win-btn close" title="Close"></button>
+            <button class="win-btn minimize" title="Minimize"></button>
+            <button class="win-btn maximize" title="Maximize"></button>
+          </div>
+          <div class="window-title">Projects</div>
+          <div class="window-controls-spacer"></div>
+        </div>
+        <div class="window-body-split">
+          <div class="window-sidebar">
+            <h3>Favorites</h3>
+            <button class="sidebar-btn active" data-category="pinned">📌 Pinned</button>
+            <button class="sidebar-btn" data-category="web">🌐 Web Apps</button>
+            <button class="sidebar-btn" data-category="tools">🔧 Tools</button>
+            <button class="sidebar-btn" data-category="ai">🤖 AI / ML</button>
+            <h3>Library</h3>
+            <button class="sidebar-btn" data-category="all">📁 All Projects</button>
+            <button class="sidebar-btn" data-category="games">🎮 Games</button>
+            <div class="sidebar-nav-divider"></div>
+            <button class="sidebar-nav-link" onclick="openWindow('window-skills')">
+              <span>⚡ My Skills</span>
+              <span class="nav-arrow">→</span>
+            </button>
+            <button class="sidebar-nav-link" onclick="openWindow('window-casestudies')">
+              <span>📝 Case Studies</span>
+              <span class="nav-arrow">→</span>
+            </button>
+          </div>
+          <div class="window-main">
+            <div class="projects-grid" id="projects-grid"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Window -->
+      <div class="window" id="window-skills" style="display:none;">
+        <div class="window-titlebar">
+          <div class="window-controls">
+            <button class="win-btn close" title="Close"></button>
+            <button class="win-btn minimize" title="Minimize"></button>
+            <button class="win-btn maximize" title="Maximize"></button>
+          </div>
+          <div class="window-title">Skills</div>
+          <div class="window-controls-spacer"></div>
+        </div>
+        <div class="window-content">
+          <div class="skills-container">
+            <div class="skill-section fade-in-section">
+              <h3>Languages</h3>
+              <div class="skills-row">
+                <div class="skill-pill" style="--pill-color:#f7df1e;--fill:90%"><div class="pill-icon" style="background:#f7df1e;color:#1a1a1a;">JS</div><span>JavaScript</span><div class="pill-bar"><div class="pill-fill"></div></div></div>
+                <div class="skill-pill" style="--pill-color:#3178c6;--fill:85%"><div class="pill-icon" style="background:#3178c6;">TS</div><span>TypeScript</span><div class="pill-bar"><div class="pill-fill"></div></div></div>
+                <div class="skill-pill" style="--pill-color:#3776ab;--fill:80%"><div class="pill-icon" style="background:#3776ab;">Py</div><span>Python</span><div class="pill-bar"><div class="pill-fill"></div></div></div>
+                <div class="skill-pill" style="--pill-color:#dea584;--fill:50%"><div class="pill-icon" style="background:#dea584;color:#1a1a1a;">Rs</div><span>Rust</span><div class="pill-bar"><div class="pill-fill"></div></div></div>
+                <div class="skill-pill" style="--pill-color:#e34f26;--fill:95%"><div class="pill-icon" style="background:#e34f26;">H5</div><span>HTML5</span><div class="pill-bar"><div class="pill-fill"></div></div></div>
+                <div class="skill-pill" style="--pill-color:#1572b6;--fill:90%"><div class="pill-icon" style="background:#1572b6;">C3</div><span>CSS3</span><div class="pill-bar"><div class="pill-fill"></div></div></div>
+              </div>
+            </div>
+            <div class="skill-section fade-in-section">
+              <h3>Frameworks</h3>
+              <div class="skills-row">
+                <div class="skill-pill" style="--pill-color:#ff3e00;--fill:90%"><div class="pill-icon" style="background:#ff3e00;">Sv</div><span>Svelte</span><div class="pill-bar"><div class="pill-fill"></div></div></div>
+                <div class="skill-pill" style="--pill-color:#bc52ee;--fill:85%"><div class="pill-icon" style="background:#bc52ee;">As</div><span>Astro</span><div class="pill-bar"><div class="pill-fill"></div></div></div>
+                <div class="skill-pill" style="--pill-color:#06b6d4;--fill:88%"><div class="pill-icon" style="background:#06b6d4;">Tw</div><span>Tailwind</span><div class="pill-bar"><div class="pill-fill"></div></div></div>
+              </div>
+            </div>
+            <div class="skill-section fade-in-section">
+              <h3>Tools &amp; Platforms</h3>
+              <div class="tool-cloud">
+                <span class="tool-tag">Git</span>
+                <span class="tool-tag">GitHub</span>
+                <span class="tool-tag">VS Code</span>
+                <span class="tool-tag">Node.js</span>
+                <span class="tool-tag">Vercel</span>
+                <span class="tool-tag">PyTorch</span>
+                <span class="tool-tag">Capacitor</span>
+                <span class="tool-tag">Vector DB</span>
+              <span class="tool-tag">Electron</span>
+              <span class="tool-tag">Tauri</span>
+              <span class="tool-tag">Firebase</span>
+              <span class="tool-tag">Appwrite</span>
+              <span class="tool-tag">Supabase</span>
+              </div>
+            </div>
+            <div class="progression-cta fade-in-section">
+              <button class="cta-btn" onclick="openWindow('window-contact')">
+                <span>Let's work together</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Window -->
+      <div class="window" id="window-contact" style="display:none;">
+        <div class="window-titlebar">
+          <div class="window-controls">
+            <button class="win-btn close" title="Close"></button>
+            <button class="win-btn minimize" title="Minimize"></button>
+            <button class="win-btn maximize" title="Maximize"></button>
+          </div>
+          <div class="window-title">Contact</div>
+          <div class="window-controls-spacer"></div>
+        </div>
+        <div class="window-content">
+          <div class="contact-container">
+            <h2>Let's Connect</h2>
+            <p class="contact-sub">Always happy to chat about collaboration or opportunities.</p>
+            <div class="contact-grid">
+              <a href="https://github.com/RangerDevv" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-icon" style="background:#2b3137;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#faf6ef"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.28-.01-1.04-.02-2.03-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0112 5.8c1.02.01 2.05.14 3.01.41 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.21.7.82.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/></svg>
+                </div>
+                <div class="contact-text"><strong>GitHub</strong><span>RangerDevv</span></div>
+                <div class="contact-arrow">→</div>
+              </a>
+              <a href="https://instagram.com/m33r.4bdul" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.44.41.61.24 1.05.52 1.51.98.46.46.74.9.98 1.51.17.47.36 1.27.41 2.44.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.41 2.44-.24.61-.52 1.05-.98 1.51-.46.46-.9.74-1.51.98-.47.17-1.27.36-2.44.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.44-.41a4.08 4.08 0 01-1.51-.98 4.08 4.08 0 01-.98-1.51c-.17-.47-.36-1.27-.41-2.44C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.97.41-2.44.24-.61.52-1.05.98-1.51.46-.46.9-.74 1.51-.98.47-.17 1.27-.36 2.44-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.77 5.77 0 00-2.09 1.36A5.77 5.77 0 00.63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.47 1.36 2.09.62.64 1.3 1.05 2.09 1.36.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.77 5.77 0 002.09-1.36 5.77 5.77 0 001.36-2.09c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.77 5.77 0 00-1.36-2.09A5.77 5.77 0 0019.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+                </div>
+                <div class="contact-text"><strong>Instagram</strong><span>@m33r.4bdul</span></div>
+                <div class="contact-arrow">→</div>
+              </a>
+              <a href="mailto:meerabdul2008@gmail.com" class="contact-card">
+                <div class="contact-icon" style="background:#2d5a3d;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#faf6ef"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <div class="contact-text"><strong>Email</strong><span>meerabdul2008@gmail.com</span></div>
+                <div class="contact-arrow">→</div>
+              </a>
+              <a href="https://rangerdevv.github.io/" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-icon" style="background:#c4956a;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#faf6ef"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                </div>
+                <div class="contact-text"><strong>Website</strong><span>rangerdevv.github.io</span></div>
+                <div class="contact-arrow">→</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Studies Window -->
+      <div class="window" id="window-casestudies" style="display:none;">
+        <div class="window-titlebar">
+          <div class="window-controls">
+            <button class="win-btn close" title="Close"></button>
+            <button class="win-btn minimize" title="Minimize"></button>
+            <button class="win-btn maximize" title="Maximize"></button>
+          </div>
+          <div class="window-title">Case Studies</div>
+          <div class="window-controls-spacer"></div>
+        </div>
+        <div class="window-content">
+          <div class="case-studies-container">
+            <div class="cs-header fade-in-section">
+              <h2>Case Studies &amp; Writeups</h2>
+              <p>Deep dives into the projects I've built — the problems, the process, and the lessons learned.</p>
+            </div>
+            <div class="case-studies-grid" id="case-studies-grid"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terminal Window -->
+      <div class="window" id="window-terminal" style="display:none;">
+        <div class="window-titlebar terminal-bar">
+          <div class="window-controls">
+            <button class="win-btn close" title="Close"></button>
+            <button class="win-btn minimize" title="Minimize"></button>
+            <button class="win-btn maximize" title="Maximize"></button>
+          </div>
+          <div class="window-title">Terminal — ranger-sh</div>
+          <div class="window-controls-spacer"></div>
+        </div>
+        <div class="window-content terminal-content">
+          <div id="terminal-output">
+            <div class="term-line"><span class="term-info">Welcome to ranger-sh v2.0</span></div>
+            <div class="term-line"><span class="term-info">Type 'help' for available commands.</span></div>
+            <div class="term-line">&nbsp;</div>
+          </div>
+          <div class="terminal-input-line">
+            <span class="term-prompt">ranger ~$&nbsp;</span>
+            <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" />
+          </div>
+        </div>
+      </div>
+
+      <!-- GitHub Window -->
+      <div class="window" id="window-github" style="display:none;">
+        <div class="window-titlebar">
+          <div class="window-controls">
+            <button class="win-btn close" title="Close"></button>
+            <button class="win-btn minimize" title="Minimize"></button>
+            <button class="win-btn maximize" title="Maximize"></button>
+          </div>
+          <div class="window-title">GitHub</div>
+          <div class="window-controls-spacer"></div>
+        </div>
+        <div class="window-content">
+          <div class="github-redirect">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="#2d5a3d"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.28-.01-1.04-.02-2.03-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0112 5.8c1.02.01 2.05.14 3.01.41 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.21.7.82.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/></svg>
+            <h2>Opening GitHub...</h2>
+            <p>Taking you to <a href="https://github.com/RangerDevv" target="_blank" rel="noopener noreferrer">github.com/RangerDevv</a></p>
+            <a href="https://github.com/RangerDevv" target="_blank" rel="noopener noreferrer" class="btn-github">Open in Browser</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dock -->
+    <div id="dock-wrap">
+      <div id="dock">
+        <button class="dock-item" data-window="about" data-tooltip="About Me">
+          <svg viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#2d5a3d"/><circle cx="28" cy="21" r="9" fill="#faf6ef"/><path d="M12 48c0-9 7-14 16-14s16 5 16 14" fill="#faf6ef" opacity="0.8"/></svg>
+        </button>
+        <button class="dock-item" data-window="projects" data-tooltip="Projects">
+          <svg viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#b8860b"/><rect x="10" y="18" width="36" height="26" rx="3" fill="#faf6ef" opacity="0.9"/><rect x="10" y="18" width="36" height="7" rx="3" fill="#d4a843"/><circle cx="16" cy="21.5" r="1.5" fill="#e85d4a"/><circle cx="21" cy="21.5" r="1.5" fill="#f5b731"/><circle cx="26" cy="21.5" r="1.5" fill="#2d5a3d"/></svg>
+        </button>
+        <button class="dock-item" data-window="skills" data-tooltip="Skills">
+          <svg viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#3a7d4e"/><path d="M16 38V28M23 38V22M30 38V30M37 38V26" stroke="#faf6ef" stroke-width="4" stroke-linecap="round"/></svg>
+        </button>
+        <button class="dock-item" data-window="contact" data-tooltip="Contact">
+          <svg viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#c4956a"/><rect x="10" y="16" width="36" height="24" rx="4" fill="#faf6ef"/><path d="M10 20l18 11 18-11" stroke="#c4956a" stroke-width="2.5"/></svg>
+        </button>
+        <button class="dock-item" data-window="casestudies" data-tooltip="Case Studies">
+          <svg viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#1e3f2b"/><rect x="12" y="10" width="32" height="36" rx="3" fill="#faf6ef" opacity="0.9"/><rect x="17" y="17" width="18" height="2" rx="1" fill="#2d5a3d" opacity="0.6"/><rect x="17" y="22" width="22" height="2" rx="1" fill="#2d5a3d" opacity="0.4"/><rect x="17" y="27" width="14" height="2" rx="1" fill="#2d5a3d" opacity="0.3"/><rect x="17" y="34" width="20" height="2" rx="1" fill="#2d5a3d" opacity="0.4"/><rect x="17" y="39" width="10" height="2" rx="1" fill="#2d5a3d" opacity="0.3"/></svg>
+        </button>
+        <div class="dock-sep"></div>
+        <button class="dock-item" data-window="terminal" data-tooltip="Terminal">
+          <svg viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#1a2e1a"/><path d="M16 22l10 7-10 7" stroke="#5cb87a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><line x1="30" y1="36" x2="40" y2="36" stroke="#5cb87a" stroke-width="3" stroke-linecap="round"/></svg>
+        </button>
+        <a class="dock-item" href="https://github.com/RangerDevv" target="_blank" rel="noopener noreferrer" data-tooltip="GitHub">
+          <svg viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="13" fill="#2b3137"/><path d="M28 10C18.06 10 10 18.06 10 28c0 7.96 5.16 14.69 12.3 17.08.9.17.74-.39.74-.8v-2.81c-5.56.65-5.78-3.03-6.15-3.64-.75-1.29-2.53-1.62-2-2.23 1.27-.65 2.55.16 4.04 2.36 1.08 1.59 3.18 1.32 4.24 1.06.23-.96.72-1.82 1.4-2.48-5.76-1.03-8.16-4.56-8.16-8.76 0-2.04.67-3.91 1.98-5.42-.84-2.48.08-4.6.2-4.91 2.38-.21 4.85 1.7 5.04 1.86a19.5 19.5 0 015.12-.7c1.77 0 3.46.24 5.05.69.46-.35 2.73-2.01 4.92-1.82.13.31 1.02 2.4.22 4.83 1.34 1.52 2.02 3.41 2.02 5.46 0 4.21-2.42 7.75-8.2 8.76.94.94 1.52 2.24 1.52 3.68v4.08c.03.32 0 .64.56.64C40.9 42.63 46 35.93 46 28c0-9.94-8.06-18-18-18z" fill="#faf6ef"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
