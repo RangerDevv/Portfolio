@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { archiveSections, featuredProjects } from '../../data/site';
+---
+
+<Layout title="Projects | RangerDevv" description="Featured projects and archive for RangerDevv.">
+  <section class="page-hero">
+    <div>
+      <span class="eyebrow">Projects</span>
+      <h1>Featured builds up front, archive in the back.</h1>
+      <p class="lede">A mix of product experiments, shipped web apps, tools, AI projects, and design-heavy site work.</p>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-heading">
+      <h2>Featured</h2>
+      <p>The main projects I&apos;d point someone to first.</p>
+    </div>
+    <div class="card-grid">
+      {featuredProjects.map((project) => (
+        <article class="panel project-card">
+          <div class="panel-head">
+            <span class="panel-kicker">{project.category}</span>
+            <span class="panel-badge">{project.year}</span>
+          </div>
+          <h3>{project.name}</h3>
+          <p>{project.summary}</p>
+          <div class="chip-row">
+            {project.stack.map((item) => <span class="chip">{item}</span>)}
+          </div>
+          <div class="card-actions">
+            <a class="button" href={`/projects/${project.slug}`}>Open project page</a>
+            {project.links
+              .filter((link) => link.external)
+              .slice(0, 1)
+              .map((link) => (
+                <a class="button button-secondary" href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+              ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-heading">
+      <h2>Archive</h2>
+      <p>A wider snapshot of the portfolio across categories.</p>
+    </div>
+    <div class="archive-grid">
+      {archiveSections.map((section) => (
+        <article class="panel content-card">
+          <div class="panel-head">
+            <span class="panel-kicker">{section.title}</span>
+          </div>
+          <div class="item-stack">
+            {section.items.map((item) => (
+              <a class="archive-row" href={item.href} target="_blank" rel="noreferrer">
+                <span>
+                  <strong>{item.name}</strong>
+                  <p>{item.description}</p>
+                </span>
+                <span class="link-arrow">↗</span>
+              </a>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>

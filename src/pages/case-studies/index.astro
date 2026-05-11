@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { caseStudies } from '../../data/site';
+---
+
+<Layout title="Case Studies | RangerDevv" description="Deep dives into selected RangerDevv projects.">
+  <section class="page-hero">
+    <div>
+      <span class="eyebrow">Case studies</span>
+      <h1>Context beyond the card.</h1>
+      <p class="lede">The problem, the approach, and the lessons behind a few of the more interesting builds.</p>
+    </div>
+  </section>
+
+  <section class="card-grid">
+    {caseStudies.map((study) => (
+      <a class="panel case-study-card" href={`/case-studies/${study.slug}`}>
+        <div class="panel-head">
+          <span class="panel-kicker">{study.date}</span>
+          <span class="link-arrow">↗</span>
+        </div>
+        <h2>{study.title}</h2>
+        <p>{study.subtitle}</p>
+        <div class="chip-row">
+          {study.tags.map((tag) => <span class="chip">{tag}</span>)}
+        </div>
+      </a>
+    ))}
+  </section>
+</Layout>

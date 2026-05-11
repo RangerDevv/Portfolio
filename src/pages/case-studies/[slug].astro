@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { caseStudies, getCaseStudyBySlug } from '../../data/site';
+
+export function getStaticPaths() {
+  return caseStudies.map((study) => ({
+    params: { slug: study.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const study = getCaseStudyBySlug(slug ?? '');
+
+if (!study) {
+  throw new Error(`Unknown case study slug: ${slug}`);
+}
+---
+
+<Layout title={`${study.title} Case Study | RangerDevv`} description={study.subtitle}>
+  <section class="page-hero">
+    <div>
+      <span class="eyebrow">{study.date}</span>
+      <h1>{study.title}</h1>
+      <p class="lede">{study.subtitle}</p>
+      <p>{study.overview}</p>
+    </div>
+    <div class="hero-actions">
+      <a class="button" href={`/projects/${study.projectSlug}`}>Open related project</a>
+      <a class="button button-secondary" href="/case-studies">All case studies</a>
+    </div>
+  </section>
+
+  <section class="content-grid">
+    <article class="panel content-card span-6">
+      <div class="panel-head">
+        <span class="panel-kicker">Problem</span>
+      </div>
+      <p>{study.problem}</p>
+    </article>
+
+    <article class="panel content-card span-6">
+      <div class="panel-head">
+        <span class="panel-kicker">Solution</span>
+      </div>
+      <p>{study.solution}</p>
+    </article>
+
+    <article class="panel content-card span-5">
+      <div class="panel-head">
+        <span class="panel-kicker">Stack</span>
+      </div>
+      <div class="chip-row">
+        {study.stack.map((item) => <span class="chip">{item}</span>)}
+      </div>
+    </article>
+
+    <article class="panel content-card span-7">
+      <div class="panel-head">
+        <span class="panel-kicker">Outcomes</span>
+      </div>
+      <ul class="stack-list">
+        {study.outcomes.map((item) => <li>{item}</li>)}
+      </ul>
+    </article>
+
+    <article class="panel content-card span-12">
+      <div class="panel-head">
+        <span class="panel-kicker">Lessons learned</span>
+      </div>
+      <div class="three-up">
+        {study.lessons.map((item) => (
+          <div class="value-card">
+            <p>{item}</p>
+          </div>
+        ))}
+      </div>
+    </article>
+  </section>
+</Layout>

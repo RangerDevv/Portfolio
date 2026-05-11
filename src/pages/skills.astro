@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { skillGroups } from '../data/site';
+---
+
+<Layout title="Skills | RangerDevv" description="RangerDevv's core languages, frameworks, and tools.">
+  <section class="page-hero">
+    <div>
+      <span class="eyebrow">Skills</span>
+      <h1>The stack behind the widgets.</h1>
+      <p class="lede">A mix of front-end craft, product thinking, and tools that help ideas move quickly.</p>
+    </div>
+  </section>
+
+  <section class="content-grid">
+    {skillGroups.map((group) => (
+      <article class="panel content-card span-4">
+        <div class="panel-head">
+          <span class="panel-kicker">{group.title}</span>
+        </div>
+        <div class="chip-row">
+          {group.items.map((item) => <span class="chip">{item}</span>)}
+        </div>
+      </article>
+    ))}
+
+    <article class="panel content-card span-12">
+      <div class="panel-head">
+        <span class="panel-kicker">How I work</span>
+      </div>
+      <div class="three-up">
+        <div class="value-card">
+          <strong>UI first, but not UI only</strong>
+          <p>I like interfaces that feel polished, but the structure underneath still needs to be maintainable and intentional.</p>
+        </div>
+        <div class="value-card">
+          <strong>Ship useful things</strong>
+          <p>I prefer projects with a clear user outcome over flashy complexity for its own sake.</p>
+        </div>
+        <div class="value-card">
+          <strong>Learn in public</strong>
+          <p>Open source projects and experiments are a big part of how I level up and refine my taste.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+</Layout>

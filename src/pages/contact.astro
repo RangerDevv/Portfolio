@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { profile } from '../data/site';
+
+const contactItems = [
+  {
+    label: 'Email',
+    value: profile.email,
+    href: `mailto:${profile.email}`,
+  },
+  {
+    label: 'GitHub',
+    value: 'RangerDevv',
+    href: profile.github,
+  },
+  {
+    label: 'Instagram',
+    value: '@m33r.4bdul',
+    href: profile.instagram,
+  },
+  {
+    label: 'Website',
+    value: 'rangerdevv.github.io',
+    href: profile.website,
+  },
+];
+---
+
+<Layout title="Contact | RangerDevv" description="Get in touch with RangerDevv.">
+  <section class="page-hero">
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h1>Let&apos;s build something interesting.</h1>
+      <p class="lede">I&apos;m open to collaboration, product conversations, and opportunities where thoughtful interfaces matter.</p>
+    </div>
+  </section>
+
+  <section class="content-grid">
+    <article class="panel content-card span-5">
+      <div class="panel-head">
+        <span class="panel-kicker">Availability</span>
+      </div>
+      <h2>Open to collaborate</h2>
+      <p>If you have a project, an idea, or just want to talk through a product direction, reach out through whichever channel is easiest.</p>
+    </article>
+
+    <article class="panel content-card span-7">
+      <div class="panel-head">
+        <span class="panel-kicker">Reach me here</span>
+      </div>
+      <div class="contact-list">
+        {contactItems.map((item) => (
+          <a class="contact-row" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noreferrer' : undefined}>
+            <span>
+              <strong>{item.label}</strong>
+              <small>{item.value}</small>
+            </span>
+            <span class="link-arrow">↗</span>
+          </a>
+        ))}
+      </div>
+    </article>
+  </section>
+</Layout>

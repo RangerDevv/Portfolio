@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { profile, quickFacts } from '../data/site';
+---
+
+<Layout title="About | RangerDevv" description="Learn more about RangerDevv, interests, background, and what drives the work.">
+  <section class="page-hero">
+    <div>
+      <span class="eyebrow">About me</span>
+      <h1>Builder, learner, and interface nerd.</h1>
+      <p class="lede">{profile.tagline}</p>
+    </div>
+  </section>
+
+  <section class="content-grid">
+    <article class="panel content-card span-7">
+      <div class="panel-head">
+        <span class="panel-kicker">readme.md</span>
+      </div>
+      {profile.about.map((paragraph) => <p>{paragraph}</p>)}
+    </article>
+
+    <article class="panel content-card span-5">
+      <div class="panel-head">
+        <span class="panel-kicker">Quick facts</span>
+      </div>
+      <dl class="fact-list">
+        {quickFacts.map((fact) => (
+          <div>
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </article>
+
+    <article class="panel content-card span-6">
+      <div class="panel-head">
+        <span class="panel-kicker">Current focus</span>
+      </div>
+      <h2>{profile.focus}</h2>
+      <p>
+        I like projects where product thinking, visual polish, and implementation quality all matter. That usually pulls me toward full-stack apps, design-heavy websites, and tools with a strong point of view.
+      </p>
+    </article>
+
+    <article class="panel content-card span-6">
+      <div class="panel-head">
+        <span class="panel-kicker">Outside the editor</span>
+      </div>
+      <div class="item-stack">
+        {profile.interests.map((interest) => (
+          <div class="item-row">
+            <strong>{interest.title}</strong>
+            <p>{interest.description}</p>
+          </div>
+        ))}
+      </div>
+    </article>
+  </section>
+</Layout>

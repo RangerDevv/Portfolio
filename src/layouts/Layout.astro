@@ -1,9 +1,32 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
+
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = 'RangerDevv is a full-stack developer building web apps, tools, and thoughtful product experiences.',
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+const isHome = pathname === '/';
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/skills', label: 'Skills' },
+  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const isActive = (href: string) => {
+  if (href === '/') return pathname === '/';
+  return pathname.startsWith(href);
+};
 ---
 
 <!DOCTYPE html>
@@ -11,12 +34,46 @@ const { title } = Astro.props;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
   <title>{title}</title>
+  <ViewTransitions />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
-<body>
-  <slot />
+<body class:list={{ 'home-page': isHome }}>
+  <div class="site-chrome" aria-hidden="true">
+    <div class="site-glow site-glow-one"></div>
+    <div class="site-glow site-glow-two"></div>
+    <div class="site-grid"></div>
+  </div>
+
+  <div class:list={{ 'site-shell': true, 'site-shell-home': isHome }}>
+    <header class="site-header">
+      <a class="site-brand" href="/">
+        <span>
+          <strong>RangerDevv</strong>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={{
+              'nav-link': true,
+              active: isActive(link.href),
+            }}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+    </header>
+
+    <main class:list={{ 'site-main': true, 'site-main-home': isHome }}>
+      <slot />
+    </main>
+  </div>
 </body>
 </html>
